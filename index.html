@@ -9,12 +9,12 @@
         "imports": {
           "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.1/lib/system/single-spa.min.js",
           "@app/legacyAngularApp": "/main.js",
-          "@app/newAngularApp": "//localhost:8081/main.js"
+		  "@test/vue": "//localhost:8081/js/app.cb558c29.js"
         }
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script> -->
     <script>
       System.import("@app/legacyAngularApp");
     </script>
@@ -27,7 +27,7 @@
     <p>
       <a href="#!/home">AngularJs App</a>
       <br />
-      <a href="#!/angular">Angular App</a>
+      <a href="#!/vue">vue</a>
     </p>
     <ui-view></ui-view>
     <script>
@@ -39,9 +39,9 @@
           activeWhen: ["#!/home"],
         });
         window.singleSpa.registerApplication({
-          name: "newAngularApp",
-          app: () => System.import("@app/newAngularApp"),
-          activeWhen: ["#!/angular"],
+          name: "newVueApp",
+          app: () => System.import("@test/vue"),
+          activeWhen: ["#!/vue"],
         });
         window.singleSpa.start();
       });
